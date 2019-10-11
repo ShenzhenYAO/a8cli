@@ -1,0 +1,45 @@
+<!--The following line is replaced by C.6 
+
+    <h1>Login Page</h1>
+
+-->
+
+<!-- the following part is added by C.6-->
+<!-- The following is removed by E.6.2
+<div *ngIf="error" class="alert alert-danger">{{error}}</div>
+-->
+<!-- the above part is added by C.6-->
+
+<!-- the following part is added by D.5.2-->
+<!-- The following is removed by E.6.2
+<div *ngIf="success" class="alert alert-success">{{success}}</div>
+-->
+<!-- the above part is added by D.5.2-->
+
+<!-- the following part is added by C.6-->
+<h2>Login</h2>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+            <div *ngIf="f.username.errors.required">Username is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Password is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Login
+        </button>
+        <a routerLink="/register" class="btn btn-link">Register</a>
+    </div>
+</form>
+<!-- the above part is added by C.6-->
+
